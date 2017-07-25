@@ -1,0 +1,7 @@
+deploy_file_path:"../caffemodel/yangpu_0427/yangpu_0427_googlenet_16_b.prototxt"
+trained_model_path:"../caffemodel/yangpu_0427/b_bvlc_googlenet_smoke_12_iter_80000.caffemodel"
+mean_file_path:"../caffemodel/yangpu_0427/yangpu_0427_googlenet_16_b.binaryproto"
+label_file_path:"../caffemodel/yangpu_0427/yangpu_0427_googlenet_16_b.meta.txt"
+use_gpu:true
+model_version:"yangpu_0427_googlenet"
+input_size:224

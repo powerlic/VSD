@@ -1,0 +1,4 @@
+LIBRARY	"VideoSmokeDetection"
+EXPORTS
+CreateVasP @ 1
+CreateVasNvrP @ 2

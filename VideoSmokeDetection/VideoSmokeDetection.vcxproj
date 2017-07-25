@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5C0939BB-758B-428F-91AF-25915B595530}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>VideoSmokeDetection</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 8.0.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>../include;../include/boost;../include/opencv2.4.11;../include/opencv2.4.11/opencv;../include/opencv2.4.11/opencv2;../include/ffmpeg;../include/cuda8.0;../include/caffe;../include/vld;../include/glog;../proto;../include/hk;$(IncludePath)</IncludePath>
+    <LibraryPath>../lib/debug/opencv2.4.11;../lib/debug/boost/threading_mutli;../lib/debug/dxsdk_june2010;../lib/debug/ffmpeg;../lib/debug/caffe;../lib/debug/vld;../lib/debug/glog;../lib/debug/protobuf;../lib/debug;../lib/debug/boost;../lib/hk;$(LibraryPath)</LibraryPath>
+    <TargetName>$(ProjectName)_d</TargetName>
+    <OutDir>$(SolutionDir)\dll\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>../include/hk;../include/boost;../include/opencv2.4.11;../include;../include/opencv2.4.11/opencv;../include/opencv2.4.11/opencv2;../include/ffmpeg;../include/dxsdk_june2010;../include/cuda8.0;../include/caffe;../include/glog;../proto;$(IncludePath)</IncludePath>
+    <LibraryPath>../lib/release;../lib/release/boost;../lib/release/opencv2.4.11;../lib/release/boost/threading_mutli;../lib/release/cuda8.0;../lib/release/ffmpeg;../lib/release/dxsdk_june2010;../lib/release/caffe;../lib/release/glog;../lib/release/protobuf;../lib/hk;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)\dll\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_XKEYCHECK_H;WIN32;_DEBUG;_CONSOLE;_LIB;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalOptions>-Zm500 %(AdditionalOptions)</AdditionalOptions>
+      <BrowseInformation>true</BrowseInformation>
+      <AdditionalIncludeDirectories />
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>cublas.lib;curand.lib;cudart.lib;vld.lib;libprotobufd.lib;libprotocd.lib;caffe-classifier_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>VasP_d.def</ModuleDefinitionFile>
+    </Link>
+    <CudaCompile>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+      <CodeGeneration>compute_30,sm_30</CodeGeneration>
+    </CudaCompile>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>_XKEYCHECK_H;WIN32;NDEBUG;_CONSOLE;_LIB;_SCL_SECURE_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>cudart.lib;cublas.lib;curand.lib;libprotobuf.lib;libprotoc.lib;caffe-classifier.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ModuleDefinitionFile>VasP.def</ModuleDefinitionFile>
+    </Link>
+    <CudaCompile>
+      <CodeGeneration>compute_20,sm_20</CodeGeneration>
+      <TargetMachinePlatform>64</TargetMachinePlatform>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\caffe\IClassification.h" />
+    <ClInclude Include="..\include\concurrent_queue.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="BgGuassian.h" />
+    <ClInclude Include="BgVibe.h" />
+    <ClInclude Include="BgVibeBoost.h" />
+    <ClInclude Include="cuda_common.h" />
+    <ClInclude Include="ffmpeg_dxva.h" />
+    <ClInclude Include="Filter.h" />
+    <ClInclude Include="LicImageOperation.h" />
+    <ClInclude Include="NvrMaster.h" />
+    <ClInclude Include="NvrService.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="VasDecodeMaster.h" />
+    <ClInclude Include="VasDetectMaster.h" />
+    <ClInclude Include="VasGpuBoost.h" />
+    <ClInclude Include="VasIO.h" />
+    <ClInclude Include="VasP.h" />
+    <ClInclude Include="VasProto.prototxt.pb.h" />
+    <ClInclude Include="VasService.h" />
+    <ClInclude Include="VasVideoSource.h" />
+    <ClInclude Include="zini.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BgGuassian.cpp" />
+    <ClCompile Include="BgVibe.cpp" />
+    <ClCompile Include="BgVibeBoost.cpp" />
+    <ClCompile Include="cuda_common.cpp" />
+    <ClCompile Include="ffmpeg_dxva.cpp" />
+    <ClCompile Include="Filter.cpp" />
+    <ClCompile Include="LicImageOperation.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">_XKEYCHECK_H;WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">_XKEYCHECK_H;WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="NvrMaster.cpp" />
+    <ClCompile Include="NvrService.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Test.cpp" />
+    <ClCompile Include="VasDecodeMaster.cpp" />
+    <ClCompile Include="VasDetectMaster.cpp" />
+    <ClCompile Include="VasGpuBoost.cpp" />
+    <ClCompile Include="VasIO.cpp" />
+    <ClCompile Include="VasP.cpp" />
+    <ClCompile Include="VasProto.prototxt.pb.cc" />
+    <ClCompile Include="VasService.cpp" />
+    <ClCompile Include="zini.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="bgBoost.cu">
+      <CodeGeneration Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">compute_52,sm_52</CodeGeneration>
+      <CodeGeneration Condition="'$(Configuration)|$(Platform)'=='Release|x64'">compute_50,sm_50</CodeGeneration>
+      <Runtime Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">InheritFromHost</Runtime>
+    </CudaCompile>
+    <CudaCompile Include="BgVibeBoost.cu" />
+    <CudaCompile Include="filterBoost.cu">
+      <CodeGeneration Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">compute_52,sm_52</CodeGeneration>
+    </CudaCompile>
+    <CudaCompile Include="VasGpuBoost.cu">
+      <CodeGeneration Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">compute_52,sm_52</CodeGeneration>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\proto\service_default_settting.prototxt" />
+    <None Include="..\proto\service_list.prototxt" />
+    <None Include="..\proto\service_video_file.prototxt" />
+    <None Include="VasP.def" />
+    <None Include="VasP_d.def" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 8.0.targets" />
+  </ImportGroup>
+</Project>

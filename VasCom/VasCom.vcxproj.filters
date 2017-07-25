@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="HPSocket">
+      <UniqueIdentifier>{0c29ddd2-47fe-486e-95c0-da11d62ac9e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{38a8a4b1-5918-467b-90df-b7476fa539e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="json2proto">
+      <UniqueIdentifier>{cf208efe-3337-43fb-bf5c-0eaca7bb5091}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VasCom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\SocketHelper.h">
+      <Filter>HPSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\SocketInterface.h">
+      <Filter>HPSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\TcpClient.h">
+      <Filter>HPSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\HPTypeDef.h">
+      <Filter>HPSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\RWLock.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\Semaphore.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\Singleton.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\STLHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\SysHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\WaitFor.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\Win32Helper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\bufferpool.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\bufferptr.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\CriticalSection.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\Event.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\HPSocket\Common\GeneralHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\VideoSmokeDetection\VasProto.prototxt.pb.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VasIO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bin2ascii.h">
+      <Filter>json2proto</Filter>
+    </ClInclude>
+    <ClInclude Include="json2pb.h">
+      <Filter>json2proto</Filter>
+    </ClInclude>
+    <ClInclude Include="VasMsgTrans.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ComTest.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VasCom.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\HPSocket\SocketHelper.cpp">
+      <Filter>HPSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\HPSocket\TcpClient.cpp">
+      <Filter>HPSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\HPSocket\Common\SysHelper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\HPSocket\Common\WaitFor.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\HPSocket\Common\bufferpool.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\include\HPSocket\Common\RWLock.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\VideoSmokeDetection\VasProto.prototxt.pb.cc">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VasIO.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="json2pb.cc">
+      <Filter>json2proto</Filter>
+    </ClCompile>
+    <ClCompile Include="VasMsgTrans.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ComTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\proto\com.prototxt">
+      <Filter>源文件</Filter>
+    </None>
+  </ItemGroup>
+</Project>

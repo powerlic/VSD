@@ -1,0 +1,22 @@
+bg_method:GUASSIAN_CPU
+stable_threshold:0.5
+bg_width:800
+bg_height:576
+bg_status:BG_SETUP
+bg_operation
+{
+	morphology_open_times:1
+	dilate_times:1
+}
+guassian_parameter
+{
+	learn_rate:0.001
+	num_history:20
+	shadow_detection:true
+	var_threshold:4
+}
+
+
+
+
+

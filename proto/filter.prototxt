@@ -1,0 +1,30 @@
+contour_area_threshold:550
+contour_perimeter_threshold:100
+area_perimeter_ratio_threshold:0.01
+color_fit_ratio:0.6
+filter_width:800
+filter_height:600
+filter_method:CONTOUR_COLOR
+rgb_th_1
+{
+	lower:0
+	upper:10
+}
+rgb_th_2
+{
+	lower:80
+	upper:200
+}
+ycbcr_th_1
+{
+	lower:0
+	upper:50
+}
+ycbcr_th_2
+{
+	lower:130
+	upper:250
+}
+
+
+

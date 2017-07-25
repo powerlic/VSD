@@ -1,0 +1,85 @@
+service_id:""
+nvr_channel
+{
+	service_id:""
+	channel_no:1
+	cam_status:CAM_OFFLINE
+	dst_width:800
+	dst_height:576
+}
+detect_parameter
+{
+	service_id:""
+	reg_type:"smoke"
+	reg_type:"fire"
+	smoke_detect_sensitity:0.2
+	fire_detect_sensitity:0.2
+	reg_width:800
+	reg_height:576
+	reg_interval:20
+	num_history:50
+	show_result_frame:true
+	show_smoke_hot_frame:false
+	show_fire_hot_frame:false
+	show_bg:false
+	save_reg_frame:false
+	save_video:false
+	merge_fore_rects:false
+	bg_parameter
+	{
+		bg_method:GUASSIAN_CPU
+		stable_threshold:0.9
+		bg_width:420
+		bg_height:320
+		bg_status:BG_SETUP
+		bg_operation
+		{
+			morphology_open_times:1
+			dilate_times:1
+		}
+		guassian_parameter
+		{
+			learn_rate:0.001
+			num_history:20
+			shadow_detection:true
+			var_threshold:10
+		}
+
+	}
+	filter_parameter
+	{
+		contour_area_threshold:550
+		contour_perimeter_threshold:100
+		area_perimeter_ratio_threshold:0.01
+		color_fit_ratio:0.6
+		filter_width:420
+		filter_height:320
+		filter_method:PURE_CONTOUR_AREA
+		rgb_th_1
+		{
+			lower:0
+			upper:10
+		}
+		rgb_th_2
+		{
+			lower:80
+			upper:200
+		}
+		ycbcr_th_1
+		{
+			lower:0
+			upper:50
+		}
+		ycbcr_th_2
+		{
+			lower:130
+			upper:250
+		}
+	}
+	caffe_parameter
+	{
+		confience_score:0.5
+		input_size:224
+		model_version:"0523"
+	}
+}

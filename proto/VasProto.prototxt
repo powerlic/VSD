@@ -1,0 +1,405 @@
+syntax="proto2";
+
+package vas;
+
+//Decode Paramter
+enum DecodeMethod
+{
+	DECODE_CPU=0;
+	DECODE_GPU=1;
+}
+
+enum VideoSource
+{
+	VIDEO_FILE=1;
+	RTSP_STREAM=2;
+	NVR=3;
+}
+
+enum CamStatus
+{
+	CAM_ONLINE=1;
+	CAM_OFFLINE=2;
+}
+
+enum StreamStatus
+{
+	STREAM_UNKNOWN=0;
+	STREAM_CONNECTING=1;
+	STREAM_NORMAL=2;
+	STREAM_FINISH=3;
+	STREAM_STOP=10;
+	STREAM_PAUSE=4;
+	STREAM_NETWORK_FAULT=5;
+	FILE_FAULT=6;
+	STREAM_CPU_DECODE_FAULT=8;
+	STREAM_GPU_DECODE_FAULT=9;
+}
+
+message NvrParameter
+{
+	optional string ip=7;
+	optional string user_name=1;
+	optional string password=2;
+	optional uint64 port=3[default=8000];
+	optional uint64 connect_timeout=4[default=500000];
+	optional uint64 reconnect_time=5[default=1000000];
+	optional uint64 check_interval=6[default=5000];
+}
+message NvrChannel
+{
+	optional string service_id=1;
+	optional int32 channel_no=2[default=0];
+	optional CamStatus cam_status=3[default=CAM_OFFLINE];
+	optional int32 interval_time=4[default=20];
+	optional int32 dst_width=5[default=720];
+	optional int32 dst_height=6[default=576];
+}
+
+message DecodeParameter
+{
+	optional string service_id=1;
+	optional DecodeMethod decode_method=2[default=DECODE_CPU];
+	optional uint32 dst_width=3[default=800];
+	optional uint32 dst_height=4[default=576];
+	optional uint32 interval_time=5[default=20];
+	optional uint32 max_reconnect_times=6[default=3];
+	optional uint32 reconnect_sleep_times=14[default=10000];
+	optional uint32 max_decode_error_frames=15[default=500];
+	optional string url=7;
+	optional StreamStatus stream_status=9[default=STREAM_UNKNOWN];
+	optional uint64 total_ms=10[default=1000000000];
+	optional uint64 connect_timeout=11[default=500000];
+	optional VideoSource video_source=12;
+	optional bool print_decode_count=13[default=false];
+}
+
+//Detecter Parameter
+//Background Model
+enum BgStatus
+{
+	BG_UNINIALIZED=0;
+	BG_SETUP=1;
+	BG_UPDATING=2;
+}
+
+enum BgMethod
+{
+	VIBE_CPU=0;
+	VIBE_GPU=1;
+	GUASSIAN_CPU=2;
+	//GUASSIAN_GPU not impemented
+	GUASSIAN_GPU=3;
+}
+
+message BgGuassianParameter
+{
+	optional uint32 num_history=1 [default=20];
+	optional uint32 var_threshold=2[default=4];
+	optional bool  shadow_detection=3[default=true];
+	optional float learn_rate=4[default=0.01];
+}
+
+message BgVibeParameter
+{
+	optional uint32 num_samples=1[default=20];
+	optional uint32 min_match=2 [default=4];
+	optional uint32 radius=3 [default=10];
+	optional uint32 subsample_factor=4[default=16];
+	optional uint32 bg2_delay=5[default=50];
+	optional uint32 max_mismatch_count=6[default=50];
+	optional bool double_bg=7[default=false];
+	optional float learn_rate=8[default=0.5];
+}
+
+message BgOperation
+{
+	optional uint32 morphology_open_times = 1[default=1];
+	optional uint32 dilate_times=2[default=1];
+}
+
+message BgParameter
+{
+	optional BgMethod bg_method=1 [default=GUASSIAN_CPU];
+	optional float stable_threshold=2 [default=0.5];
+	optional BgGuassianParameter guassian_parameter=3;
+	optional BgVibeParameter vibe_parameter=4;
+	optional BgOperation bg_operation=5;
+	optional BgStatus bg_status=6[default=BG_UNINIALIZED];
+
+	optional uint32 bg_width=7[default=420];
+	optional uint32 bg_height=8[default=320];
+}
+//Filter for Smoke Detection
+enum FilterMethod
+{
+	FRAME_COLOR_CPU=0;
+	FRAME_COLOR_GPU=1;
+	CONTOUR_COLOR=3;
+	PURE_CONTOUR_AREA=4;
+}
+
+message ColorThreshold
+{
+	optional float lower=1[default=0];
+	optional float upper=2[default=255];
+}
+
+//Filter Parameter
+enum FilterType
+{
+	SMOKE_FILTER=1;
+	FIRE_FILTER=2;
+}
+message FilterParameter
+{
+	optional uint32 contour_area_threshold=1[default=500];
+	optional uint32 contour_perimeter_threshold=2[default=10];
+	optional float area_perimeter_ratio_threshold=3[default=0.01];
+	optional FilterType filter_type=12[default=SMOKE_FILTER];
+	
+	optional ColorThreshold rgb_th_1=4;
+	optional ColorThreshold rgb_th_2=5;
+	optional ColorThreshold ycbcr_th_1=6;
+	optional ColorThreshold ycbcr_th_2=7;
+
+	optional float color_fit_ratio=8[default=0.5];
+
+	optional uint32 filter_width=9[default=420];
+	optional uint32 filter_height=10[default=320];
+
+	optional FilterMethod filter_method=11[default=PURE_CONTOUR_AREA];
+}
+
+
+//Caffe Parameter
+message CaffeClassifierParameter
+{
+	optional float confience_score=1[default=0.5];
+	optional uint32 input_size=2[default=224];
+	optional string model_version=3;
+}
+
+//Detecter
+enum DetectStatus
+{
+	DETECT_ON=1;
+	DETECT_OFF=2;
+	DETECT_PAUSE=3;
+}
+
+message DetectParameter
+{
+	optional string service_id=1;
+	repeated string reg_type=2;
+	optional float smoke_detect_sensitity=11[default=0.2];
+	optional float fire_detect_sensitity=24[default=0.2];
+
+	optional uint32 num_history=12[default=50];
+
+	optional uint32 reg_width=4[default=800];
+	optional uint32 reg_height=5[default=576];
+	optional uint32 reg_interval=6[default=20];
+
+	optional BgParameter bg_parameter=7;
+	optional FilterParameter filter_parameter=8;
+
+	optional CaffeClassifierParameter caffe_parameter=9;
+	optional DetectStatus detect_status=10[default=DETECT_ON];
+
+	optional bool merge_fore_rects=20[default=false];
+	
+	optional bool show_result_frame=13[default=false];
+	optional bool show_bg=15[default=false];
+	optional bool show_reg_frame=16[default=false];
+	optional bool print_reg_count=14[default=false];
+	optional bool show_smoke_hot_frame=17[default=false];
+	optional bool show_fire_hot_frame=23[default=false];
+	optional bool save_reg_frame=18[default=false];
+	optional bool save_video=19[default=false];
+	optional bool move_area_for_reg_only=21[default=false];
+	optional bool show_move_area_for_reg_only=22[default=false];
+}
+
+
+//VasParameter
+
+message CaffeModelPath
+{
+	optional string deploy_file_path=1;
+	optional string trained_model_path=2;
+	optional string label_file_path=3;
+	optional string mean_file_path=4;
+	optional uint32 input_size=5[default=224];
+	optional string model_version=6;
+	optional bool use_gpu=7[default=true];
+}
+
+
+
+enum ServiceStatus
+{
+	SERVICE_UNKNOWN=0;
+	SERVICE_NORMAL=1;
+	SERVICE_PAUSE=2;
+	SERVICE_STREAM_FALUT=3;
+	SERVICE_DETECTER_FALUT=4;
+}
+enum ServiceCommandReply
+{
+	SERVICE_START_SUCCESS=1;
+	SERVICE_START_FALIED=2;
+	SERVICE_STOP_SUCESS=3;
+	SERVICE_STOP_FALIED=4;
+	SERVICE_PAUSE_SUCCESS=5;
+	SERVICE_PAUSE_FAILED=6;
+	SERVICE_RESUME_SUCCESS=7;
+	SERVICE_RESUME_FAILED=8;
+}
+
+enum RegMsgSubscribe
+{
+	SUBSCRIBE_ON=1;
+	SUBSCRIBE_OFF=2;
+}
+
+message ServiceParameter
+{
+	optional string service_id=1;
+	optional DecodeParameter decode_parameter=2;
+	optional DetectParameter detect_parameter=3;
+	optional ServiceStatus service_status=4;
+	optional RegMsgSubscribe reg_msg_subscribe=5[default=SUBSCRIBE_ON];
+}
+
+message NvrServiceParameter
+{
+	optional string service_id=1;
+	optional NvrChannel nvr_channel=2;
+	optional DetectParameter detect_parameter=3;
+	optional ServiceStatus service_status=4;
+	optional RegMsgSubscribe reg_msg_subscribe=5[default=SUBSCRIBE_ON];
+}
+message ServiceList
+{
+	optional string last_update_time=1;
+	repeated ServiceParameter service_paramter=2;
+}
+message NvrServiceList
+{
+	optional NvrParameter nvr_paramter=1;
+	repeated NvrServiceParameter service_parameter=2;
+}
+
+
+//通讯客户端设定
+
+enum EnAppState
+{
+	ST_STARTED=1;
+	ST_STOPPED=2;
+}
+
+message VasComParameter
+{
+	optional string ip=1;
+	optional int64 port=2[default=8001];
+	optional EnAppState app_state=3[default=ST_STOPPED];
+}
+//发送频率设定
+message VasMsgFilterParam
+{
+	optional string service_id=1;
+	optional int32 interval_sec=2[default=5];
+}
+
+
+//计算节点定义
+message VasComputeNode
+{
+	optional int32 node_id=1;
+	optional string node_name=2;
+	optional int32 center_id=3;
+	optional int32 com_version=4;
+	optional int32 retry_count=5;
+}
+
+//心跳消息
+//1 心跳
+message VasHeartbeatParameter
+{
+	optional string app_key=1;
+	optional int32 node_id=2;
+	optional string service_list=3;
+	optional int32 timestamp=4;
+}
+
+message VasHeartbeat
+{
+	optional string psi_name=1;
+	optional VasHeartbeatParameter params=2;
+}
+
+//反馈
+message VasRetrunParamter
+{
+	optional string psi_name=1;
+	optional int32 node_id=2;
+	optional int32 timestamp=3;
+}
+
+//返回
+message VasReturn
+{
+	optional int32 ret_code=1;
+	optional string ret_msg=2;
+	optional VasRetrunParamter params=3;
+}
+
+//报警消息
+//报警消息上报
+message RegRes
+{
+	optional string reg_type=1;
+	optional string score=2;
+	optional int32 x=3;
+	optional int32 y=4;
+	optional int32 width=5;
+	optional int32 height=6;
+}
+message VasResultParameter
+{
+	optional int32 node_id=1;
+	optional string service_id=2;
+	repeated RegRes result_rects=3;
+	optional int32 timestamp=4;
+}
+message VasResult
+{
+	optional string psi_name=1;
+	optional VasResultParameter params=2;
+}
+
+//状态上报
+//上报
+message VasFeedbackParameter
+{
+	optional int32 node_id=1;
+	optional string service_id=2;
+	optional string address_type=3;
+	optional string device_id=4;
+	optional string device_channel=5;
+	optional string address=6;
+	optional int32 feedback_code=7;
+	optional string feedback_info=8;
+	optional int32 timestamp=9;
+}
+message VasFeedback
+{
+	optional string psi_name=1;
+	optional VasFeedbackParameter params=2;
+}
+
+
+
+
