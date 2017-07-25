@@ -195,5 +195,8 @@
     <None Include="VasP_d.def">
       <Filter>DLL</Filter>
     </None>
+    <None Include="..\proto\VasProto.prototxt">
+      <Filter>proto</Filter>
+    </None>
   </ItemGroup>
 </Project>

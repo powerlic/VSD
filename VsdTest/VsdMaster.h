@@ -26,7 +26,6 @@ private:
 
 	void ServiceCommandReplyProcessFun(const char* service_id, const vas::ServiceCommandReply &reply, const string &info);
 	void StreamErrProcessFun(const char *service_id, vas::StreamStatus status);
-
 	bool find_smoke_ = false;
 };
 

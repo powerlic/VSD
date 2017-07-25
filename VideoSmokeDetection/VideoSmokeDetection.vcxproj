@@ -244,6 +244,7 @@
     <None Include="..\proto\service_default_settting.prototxt" />
     <None Include="..\proto\service_list.prototxt" />
     <None Include="..\proto\service_video_file.prototxt" />
+    <None Include="..\proto\VasProto.prototxt" />
     <None Include="VasP.def" />
     <None Include="VasP_d.def" />
   </ItemGroup>

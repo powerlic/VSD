@@ -6,10 +6,6 @@
 #include "json2pb.h"
 #include"VasIO.h"
 #include"ComTest.h"
-void MsgProcFun(const string &msg)
-{
-	LOG(INFO) <<"Outside Recevie"<< msg << endl;
-}
 
 void testJson2Proto()
 {
@@ -22,9 +18,7 @@ void testJson2Proto()
 
 int _tmain1(int argc, _TCHAR* argv[])
 {
-
 	testJson2Proto();
-
 	shared_ptr<VasCom> ptr_com = shared_ptr<VasCom>(new VasCom("../proto/com.prototxt"));
 	ptr_com->Start();
 	ptr_com->SetHeartBeatMessage("Heart beat msg");
@@ -32,14 +26,14 @@ int _tmain1(int argc, _TCHAR* argv[])
 	std::function<void(const string&)> fun = std::bind(&MsgProcFun, std::placeholders::_1);
 	ptr_com->SetReceiveProcessFun(fun);
 	system("pause");
-
 	return 0;
 }
 
 int main()
 {
 	//TestHeartbeat();
-	TestSendRegResult();
+	//TestSendRegResult();
+	TestFeedback();
 	system("pause");
 	return 0;
 }

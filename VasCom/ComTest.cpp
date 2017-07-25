@@ -52,3 +52,51 @@ void TestSendRegResult()
 		boost::thread::sleep(boost::get_system_time() + boost::posix_time::seconds(500));
 	}
 }
+void TestFeedback()
+{
+	shared_ptr<VasCom> ptr_com = shared_ptr<VasCom>(new VasCom("../proto/com.prototxt"));
+	ptr_com->Start();
+
+	vas::VasFeedback feed_back_msg;
+
+	feed_back_msg.set_psi_name("vasResult");
+	//reg_msg.mutable_params()->set_app_key("xdfadsfasdfasdf");
+	feed_back_msg.mutable_params()->set_node_id(1);
+	feed_back_msg.mutable_params()->set_service_id("service_1");
+	feed_back_msg.mutable_params()->set_address_type("rtsp");
+	feed_back_msg.mutable_params()->set_feedback_code(1);
+	feed_back_msg.mutable_params()->set_feedback_info("ok");
+	feed_back_msg.mutable_params()->set_address("rtsp_addr");
+	feed_back_msg.mutable_params()->set_timestamp(time(NULL));
+
+
+	string send_msg = VasMsgTrans::Get()->TransSendMsg(&feed_back_msg, FRAME_TYPE_FEEDBACK);
+	ptr_com->Send(send_msg);
+
+	while (true)
+	{
+		boost::thread::sleep(boost::get_system_time() + boost::posix_time::seconds(500));
+	}
+}
+
+void TestVasResultReturn()
+{
+	shared_ptr<VasCom> ptr_com = shared_ptr<VasCom>(new VasCom("../proto/com.prototxt"));
+	ptr_com->Start();
+	function<void(const string&)> fun = bind(&MsgProcFun, std::placeholders::_1);
+	ptr_com->SetReceiveProcessFun(fun);
+	while (true)
+	{
+		boost::thread::sleep(boost::get_system_time() + boost::posix_time::seconds(500));
+	}
+}
+void MsgProcFun(const string &msg)
+{
+	LOG(INFO) << msg << endl;
+	string msg_content = msg.substr(FRAME_HEADER_LEN);
+	//VasMsgTrans::Get()->TransSendMsg(&feed_back_msg, FRAME_TYPE_FEEDBACK);
+	vas::VasReturn ret_msg;
+	VasMsgTrans::Get()->TransReceiveMsg(msg_content, ret_msg);
+	LOG(INFO)<< ret_msg.ret_code() << endl;
+	LOG(INFO) << ret_msg.ret_msg() << endl;
+}

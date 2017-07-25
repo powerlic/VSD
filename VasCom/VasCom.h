@@ -4,12 +4,6 @@
 #include "VasProto.prototxt.pb.h"
 
 
-
-
-
-
-
-
 class VasCom : public CTcpClientListener
 {
 	typedef boost::signals::connection  connection_t;
