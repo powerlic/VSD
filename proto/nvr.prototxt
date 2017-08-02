@@ -1,0 +1,6 @@
+ip:"10.10.10.200"
+user_name:"admin"
+password:"12345"
+port:8000
+connect_timeout:500000
+reconnect_time:1000000

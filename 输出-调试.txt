@@ -1,0 +1,21 @@
+﻿“VasCom.exe”(Win32):  已加载“C:\Users\admin\Desktop\VideoSmokeDetectionDLL-0710-2\x64\Debug\VasCom.exe”。已加载符号。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\ntdll.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\kernel32.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\KernelBase.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\user32.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\win32u.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\gdi32.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\gdi32full.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\ws2_32.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\sechost.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\rpcrt4.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\msvcp120d.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\winmm.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\winmmbase.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\msvcrt.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\msvcr120d.dll”。无法查找或打开 PDB 文件。
+“VasCom.exe”(Win32):  已加载“C:\Windows\System32\cfgmgr32.dll”。无法查找或打开 PDB 文件。
+线程 0x33d0 已退出，返回值为 -1073741515 (0xc0000135)。
+线程 0x1cf4 已退出，返回值为 -1073741515 (0xc0000135)。
+线程 0x50c 已退出，返回值为 -1073741515 (0xc0000135)。
+程序“[16176] VasCom.exe”已退出，返回值为 -1073741515 (0xc0000135) '未找到依赖 dll'。

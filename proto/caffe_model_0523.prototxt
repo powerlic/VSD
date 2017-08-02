@@ -1,0 +1,7 @@
+deploy_file_path:"../caffemodel/0523/0523_googlenet_19.prototxt"
+trained_model_path:"../caffemodel/0523/0523_googlenet_19_iter_69000.caffemodel"
+mean_file_path:"../caffemodel/0523/0523_mean.binaryproto"
+label_file_path:"../caffemodel/0523/0523_googlenet_19.meta.txt"
+use_gpu:true
+model_version:"0523_googlenet_19"
+input_size:224

@@ -1,0 +1,10 @@
+enum EnAppState
+{
+	ST_STARTING=0;
+	ST_STARTED=1;
+	ST_CONNECTING=2;
+	ST_CONNECTED=3; 
+	ST_STOPPING=4;
+	ST_STOPPED=5;
+}
+optional EnAppState app_state=3[default=ST_STOPPED];

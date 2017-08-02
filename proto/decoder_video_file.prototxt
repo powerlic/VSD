@@ -1,0 +1,9 @@
+service_id:"decoder_instance_video"
+video_source:VIDEO_FILE
+url:"F:\\smokeVideo\\208\\IMG_7942.MP4"
+max_reconnect_times:4
+connect_timeout:5000000
+dst_width:800
+dst_height:576
+interval_time:20
+decode_method:DECODE_CPU

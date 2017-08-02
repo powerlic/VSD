@@ -1,0 +1,13 @@
+com_param{
+	ip:"127.0.0.1"
+	port:8001
+	app_state:ST_STOPPED
+	heartbeat_interval:10
+}
+node_param{
+	node_id:1
+	node_name:"VasComputUnit-1"
+	center_id:1
+	com_version:3
+	retry_count:0
+}

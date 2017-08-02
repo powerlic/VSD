@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="proto">
+      <UniqueIdentifier>{2aed91eb-d9c3-49ed-a41d-0051f54eac67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO">
+      <UniqueIdentifier>{0c233110-c9ad-4311-895a-98c9c0d04577}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DLL">
+      <UniqueIdentifier>{877366f9-d8e4-4c29-9f83-a70f90f1c195}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LicImageOperation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="zini.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\concurrent_queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\caffe\IClassification.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BgVibe.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VasProto.prototxt.pb.h">
+      <Filter>proto</Filter>
+    </ClInclude>
+    <ClInclude Include="VasIO.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BgGuassian.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VasDecodeMaster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ffmpeg_dxva.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VasDetectMaster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VasService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VasP.h">
+      <Filter>DLL</Filter>
+    </ClInclude>
+    <ClInclude Include="NvrMaster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NvrService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VasVideoSource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VasGpuBoost.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BgVibeBoost.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda_common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VasSsdMaster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SsdService.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LicImageOperation.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="zini.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BgVibe.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VasProto.prototxt.pb.cc">
+      <Filter>proto</Filter>
+    </ClCompile>
+    <ClCompile Include="VasIO.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="BgGuassian.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VasDecodeMaster.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ffmpeg_dxva.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VasDetectMaster.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VasService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VasP.cpp">
+      <Filter>DLL</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NvrMaster.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NvrService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VasGpuBoost.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BgVibeBoost.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cuda_common.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="VasSsdMaster.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SsdService.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="bgBoost.cu">
+      <Filter>资源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="filterBoost.cu">
+      <Filter>资源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="VasGpuBoost.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="BgVibeBoost.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\proto\service_video_file.prototxt">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="..\proto\service_list.prototxt">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="..\proto\service_default_settting.prototxt">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="VasP.def">
+      <Filter>DLL</Filter>
+    </None>
+    <None Include="VasP_d.def">
+      <Filter>DLL</Filter>
+    </None>
+    <None Include="..\proto\VasProto.prototxt">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="..\proto\rtsp_service_list.prototxt">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="..\proto\ssd_service_list.prototxt">
+      <Filter>proto</Filter>
+    </None>
+  </ItemGroup>
+</Project>

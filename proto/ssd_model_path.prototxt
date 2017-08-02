@@ -1,0 +1,6 @@
+deploy_file_path:"../caffemodel/ssd/300_300/deploy.prototxt"
+trained_model_path:"../caffemodel/ssd/300_300/VGG_VOC0712_SSD_300x300_iter_120000.caffemodel"
+mean_file_path:""
+mean_value:"104,117,123"
+model_version:"ssd_300_300"
+label_file_path:"../caffemodel/ssd/labelmap_voc.prototxt"

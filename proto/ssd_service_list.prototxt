@@ -1,0 +1,116 @@
+service_paramter
+{
+	service_id:"ssd_detect_test_1"
+	decode_parameter
+	{
+		service_id:"ssd_detect_test_1"
+		video_source:VIDEO_FILE
+		url:"E:\\Video\\smoke\\down_2017-01-04\\2.mp4"
+		max_reconnect_times:10
+		connect_timeout:5000000
+		reconnect_sleep_times:10000
+		max_decode_error_frames:500
+		dst_width:800
+		dst_height:576
+		interval_time:20
+		decode_method:DECODE_CPU
+	}
+	detect_parameter
+	{
+		service_id:"ssd_detect_test_1"
+		reg_type:"car"
+		reg_type:"person"
+		reg_width:800
+		reg_height:576
+		reg_interval:20
+		show_result_frame:true
+		confidence_threshold:0.5
+	}
+}
+service_paramter
+{
+	service_id:"ssd_detect_test_2"
+	decode_parameter
+	{
+		service_id:"ssd_detect_test_2"
+		video_source:VIDEO_FILE
+		url:"E:\\Video\\smoke\\down_2017-01-04\\3.mp4"
+		max_reconnect_times:10
+		connect_timeout:5000000
+		reconnect_sleep_times:10000
+		max_decode_error_frames:500
+		dst_width:800
+		dst_height:576
+		interval_time:20
+		decode_method:DECODE_CPU
+	}
+	detect_parameter
+	{
+		service_id:"ssd_detect_test_2"
+		reg_type:"car"
+		reg_type:"person"
+		reg_width:800
+		reg_height:576
+		reg_interval:20
+		show_result_frame:true
+		confidence_threshold:0.5
+	}
+}
+service_paramter
+{
+	service_id:"ssd_detect_test_3"
+	decode_parameter
+	{
+		service_id:"ssd_detect_test_3"
+		video_source:VIDEO_FILE
+		url:"E:\\Video\\smoke\\down_2017-01-04\\1.mp4"
+		max_reconnect_times:10
+		connect_timeout:5000000
+		reconnect_sleep_times:10000
+		max_decode_error_frames:500
+		dst_width:800
+		dst_height:576
+		interval_time:20
+		decode_method:DECODE_CPU
+	}
+	detect_parameter
+	{
+		service_id:"ssd_detect_test_3"
+		reg_type:"car"
+		reg_type:"person"
+		reg_width:800
+		reg_height:576
+		reg_interval:20
+		show_result_frame:true
+		confidence_threshold:0.5
+	}
+}
+service_paramter
+{
+	service_id:"ssd_detect_test_4"
+	decode_parameter
+	{
+		service_id:"ssd_detect_test_4"
+		video_source:VIDEO_FILE
+		url:"E:\\Video\\smoke\\down_2017-01-04\\4.mp4"
+		max_reconnect_times:10
+		connect_timeout:5000000
+		reconnect_sleep_times:10000
+		max_decode_error_frames:500
+		dst_width:800
+		dst_height:576
+		interval_time:20
+		decode_method:DECODE_CPU
+	}
+	detect_parameter
+	{
+		service_id:"ssd_detect_test_4"
+		reg_type:"car"
+		reg_type:"person"
+		reg_width:800
+		reg_height:576
+		reg_interval:20
+		show_result_frame:true
+		confidence_threshold:0.5
+	}
+}

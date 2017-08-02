@@ -1,0 +1,3 @@
+LIBRARY	"VasClient_d"
+EXPORTS
+CreateVasClientP @ 1
